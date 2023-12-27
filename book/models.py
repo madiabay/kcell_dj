@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 from django.urls import reverse
 
 
@@ -11,6 +12,7 @@ class Books(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name='Фото')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Создан')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Обнова')
+    is_favourite = models.BooleanField(default=False, verbose_name='Избранное')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано?')
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория', related_name='book')
 

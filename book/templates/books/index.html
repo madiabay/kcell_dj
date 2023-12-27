@@ -17,6 +17,13 @@
 			{% endautoescape %}
 			<div class="clear"></div>
 			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+            <br>
+            {% if p.is_favourite %}
+            <p class="link-read-post">Это уже в избранное</p>
+            {% else %}
+            <p><a href="{% url 'contact' %}">Добавить в избранное</a></p>
+
+            {% endif %}
 		</li>
 	{% endfor %}
 </ul>

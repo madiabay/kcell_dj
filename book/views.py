@@ -51,6 +51,7 @@ class AddPost(LoginRequiredMixin, DataMixin, CreateView):
 
 
 def contact(request):
+    favourites = Books.objects.filter(is_favourite=True)
     return HttpResponse('contact')
 
 
